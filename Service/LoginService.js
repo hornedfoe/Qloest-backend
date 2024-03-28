@@ -13,7 +13,7 @@ async function register(req, res) {
     const newUser = new User({ name, email, password, phonenumber });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({newUser});
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ error: "Internal server error" });
